@@ -166,10 +166,18 @@ h1::after {
     font-size: 1.4rem;
 }
 
+.level-buttons-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px; /* vertical spacing between the two rows */
+}
+
 .level-buttons {
     display: flex;
     gap: 10px;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .level-button {

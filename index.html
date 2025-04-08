@@ -8,23 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="level-selector">
-            <div class="level-indicator">
-                <span>רמה נוכחית:</span>
-                <span id="current-level">1</span>
-            </div>
-            <div class="level-buttons">
-                <button class="level-button" data-level="1">רמה 1</button>
-                <button class="level-button" data-level="2">רמה 2</button>
-                <button class="level-button" data-level="3">רמה 3</button>
-                <button class="level-button" data-level="4">רמה 4</button>
-                <button class="level-button" data-level="5">רמה 5</button>
-                <button class="level-button" data-level="6">רמה 6</button>
-                <button class="level-button" data-level="7">רמה 7</button>
-                <button class="level-button" data-level="8">רמה 8</button>
-                
-            </div>
+        
+
+        <div class="game-container">
+            <div class="words-column" id="hebrew-words"></div>
+            <div class="words-column" id="spanish-words"></div>
         </div>
+
         
         <div class="stats">
             <div class="stat-item">
@@ -37,11 +27,30 @@
             </div>
         </div>
 
-        <div class="game-container">
-            <div class="words-column" id="hebrew-words"></div>
-            <div class="words-column" id="spanish-words"></div>
+        <div class="level-selector">
+            <div class="level-indicator">
+                <span>רמה נוכחית:</span>
+                <span id="current-level">1</span>
+            </div>
+            <div class="level-buttons">
+                <button class="level-button" data-level="1">רמה 1</button>
+                <button class="level-button" data-level="2">רמה 2</button>
+                <button class="level-button" data-level="3">רמה 3</button>
+                <button class="level-button" data-level="4">רמה 4</button>
+            </div>
+
+            <div class="level-buttons">
+                <button class="level-button" data-level="5">רמה 5</button>
+                <button class="level-button" data-level="6">רמה 6</button>
+                <button class="level-button" data-level="7">רמה 7</button>
+                <button class="level-button" data-level="8">רמה 8</button>  
+            </div>
         </div>
+        
     </div>
+
+
+    
     <script src="script.js"></script>
 </body>
 </html> 

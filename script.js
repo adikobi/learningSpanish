@@ -78,6 +78,7 @@ const words = {
 let selectedWord = null;
 let matchedPairs = 0;
 let totalPairs = 6;
+let currentLevel = 1;
 let currentWords = {};
 
 // DOM Elements
@@ -85,6 +86,7 @@ const hebrewWordsContainer = document.getElementById('hebrew-words');
 const spanishWordsContainer = document.getElementById('spanish-words');
 const matchesFoundElement = document.getElementById('matches-found');
 const totalPairsElement = document.getElementById('total-pairs');
+const currentLevelElement = document.getElementById('current-level');
 
 // Initialize the game
 function initGame() {
@@ -100,10 +102,17 @@ function initGame() {
     // Update stats
     matchesFoundElement.textContent = '0';
     totalPairsElement.textContent = totalPairs.toString();
+    currentLevelElement.textContent = currentLevel.toString();
     
-    // Select random words
+    // Select random words based on level
     const allWords = Object.entries(words);
-    const shuffledWords = allWords.sort(() => Math.random() - 0.5);
+    const levelWords = allWords.filter(([hebrew, spanish]) => {
+        if (currentLevel === 1) return true; // All words in level 1
+        if (currentLevel === 2) return hebrew.length > 3; // Longer words in level 2
+        if (currentLevel === 3) return hebrew.length > 5; // Longest words in level 3
+    });
+    
+    const shuffledWords = levelWords.sort(() => Math.random() - 0.5);
     const selectedPairs = shuffledWords.slice(0, totalPairs);
     
     // Create word pairs
@@ -205,6 +214,24 @@ function checkMatch(word1, word2) {
     
     return currentWords[hebrewWord] === spanishWord;
 }
+
+// Handle level selection
+document.querySelectorAll('.level-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const newLevel = parseInt(button.dataset.level);
+        if (newLevel !== currentLevel) {
+            currentLevel = newLevel;
+            document.querySelectorAll('.level-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            initGame();
+        }
+    });
+});
+
+// Set initial active level button
+document.querySelector(`.level-button[data-level="1"]`).classList.add('active');
 
 // Start the game when the page loads
 window.addEventListener('load', initGame); 

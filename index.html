@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>לימוד ספרדית - התאמת מילים</h1>
-        <div class="game-container">
-            <div class="words-column" id="hebrew-words">
-                <!-- Hebrew words will be inserted here -->
+        <div class="level-selector">
+            <div class="level-indicator">
+                <span>רמה נוכחית:</span>
+                <span id="current-level">1</span>
             </div>
-            <div class="words-column" id="spanish-words">
-                <!-- Spanish words will be inserted here -->
+            <div class="level-buttons">
+                <button class="level-button" data-level="1">רמה 1</button>
+                <button class="level-button" data-level="2">רמה 2</button>
+                <button class="level-button" data-level="3">רמה 3</button>
             </div>
         </div>
+        
         <div class="stats">
-            <p>זוגות שנמצאו: <span id="matches-found">0</span> מתוך <span id="total-pairs">6</span></p>
+            <div class="stat-item">
+                <span class="stat-label">זוגות שנמצאו:</span>
+                <span id="matches-found">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">סה"כ זוגות:</span>
+                <span id="total-pairs">6</span>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="words-column" id="hebrew-words"></div>
+            <div class="words-column" id="spanish-words"></div>
         </div>
     </div>
     <script src="script.js"></script>

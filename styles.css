@@ -133,40 +133,184 @@ h1::after {
     100% { transform: translateX(0); }
 }
 
-.stats {
-    text-align: center;
-    font-size: 1.4rem;
-    color: #2c3e50;
+.level-selector {
+    background: white;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.level-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+.level-indicator span:first-child {
+    font-weight: 500;
+}
+
+#current-level {
+    font-weight: bold;
+    color: #2ecc71;
+    font-size: 1.4rem;
+}
+
+.level-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.level-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #3498db;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.level-button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.level-button.active {
+    background: #2ecc71;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+}
+
+.level-button.active:hover {
+    background: #27ae60;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.stat-item span:last-child {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.2rem;
 }
 
 /* Mobile Responsive Design */
 @media (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+
     .container {
-        margin: 10px;
-        padding: 20px;
+        margin: 5px;
+        padding: 8px;
     }
     
-    h1 {
-        font-size: 2rem;
+    .level-selector {
+        padding: 10px;
+        margin-bottom: 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
     
-    .game-container {
-        flex-direction: column;
-        gap: 20px;
+    .level-indicator {
+        font-size: 0.9rem;
+        padding: 6px 10px;
     }
     
-    .word-button {
-        padding: 20px;
-        font-size: 1.2rem;
+    #current-level {
+        font-size: 1.1rem;
+    }
+    
+    .level-buttons {
+        flex: 1;
+        margin-left: 8px;
+        justify-content: flex-end;
+    }
+    
+    .level-button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        min-width: 60px;
     }
     
     .stats {
-        font-size: 1.2rem;
-        padding: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
     }
+    
+    .stat-item {
+        padding: 8px 12px;
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+
+    .stat-item span:last-child {
+        font-size: 1rem;
+    }
+    
+    .game-container {
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .words-column {
+        width: 50%;
+        padding: 8px;
+    }
+    
+    .word-button {
+        padding: 12px;
+        font-size: 1rem;
+        margin-bottom: 4px;
+        border-radius: 12px;
+    }
+    
+    .word-button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Remove landscape specific styles since we want the same layout in both orientations */
+@media (max-width: 600px) and (orientation: landscape) {
+    /* No special landscape styles needed */
 } 
